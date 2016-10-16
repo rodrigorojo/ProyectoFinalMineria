@@ -3,6 +3,7 @@
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 \title{Almacenes y Minería de Datos \\Proyecto Final\\ Entregable 1}
 \author{Adolfo Marín Arriaga\\Juan Carlos López López\\Luis Rodrigo Rojo Morales}
@@ -12,11 +13,15 @@
  \maketitle
  
  {\bf Algoritmo 1: Naive Bayes}\\
+ 
  {\bf Objetivo}\\
+ 
  El objetivo de Naive Bayes o Clasificador bayesiano ingenuo es la construccion de clasificadores en base a datos que ya se conocen por ejemplo clasificar si una persona es hombre o mujer basandose
  en los datos que se tienen de su altura, peso y tamaño del pie. Se usa basandose en el teorema de Bayes y asume que las variables que se usan para predecir son 
  independientes\\
+ 
  {\bf Descripción}\\
+ 
  Lo que tenemos es un objeto que es lo que se quiere clasificar, las variables que se van a usar para predecir que son los datos que ya conocemos y distintas clases a donde podria 
  ir cada objeto después de la clasificación. Se usa la regla de bayes que dice que si se tienen 2 eventos A y B se saca la probabilidad de A dado B como:
  $$ P(A \mid B) = \frac{P(B \mid A) \, P(A)}{P(B)} $$
@@ -35,8 +40,10 @@
   \item $X$ es el conjunto de variables predictivas $X=\{x_1,...,x_n\}$.
   \item $C_k$ es una clase de $C_1,...,C_m$
   \item $Z$ es igual a un factor que depende solo de $x_1,...,x_n$, es una constante si sus valores son conocidos
+ 
  \end{itemize}
 {\bf Ejemplo:}\\
+ 
  Un ejemplo es si queremos clasificar frutas, las clases son platano, naranja y otras, se hizó un conjunto de entrenamiento con las variables
  de longitud, sabor y color y nos dio que:
  \begin{center}
@@ -86,9 +93,34 @@
   \end{itemize}
   La probabilidad mas grande es la de que sea platano, entonces si llega una fruta que sea alargada, dulce y amarilla la clasificamos como que va a ser un 
   platano.\\
-{\bf Bibliografía}\\
-https://en.wikipedia.org/wiki/Naive\_Bayes\_classifier\\
-https://en.wikipedia.org/wiki/Bayes\%27\_theorem
+  
+{\bf Bibliografía}
+\begin{itemize}
+ \item https://en.wikipedia.org/wiki/Naive\_Bayes\_classifier
+ \item https://en.wikipedia.org/wiki/Bayes\%27\_theorem
+\end{itemize}
 
+{\bf Plan de trabajo}\\
+
+Para nuestro problema en el preprocesamiento de datos es necesario hacer limpieza en los campos workclass, occupation y native-country, porque en algunas
+filas tienen un ? en vez de alguno de los datos de las opciones que se dan. \\
+\begin{center}
+ \includegraphics[scale=0.3]{trabajos}\\
+\end{center}
+
+También para los datos que son numéricos los datos varian en muchos valores por ejemplo
+edades tiene 71 valores distintos, entonces para estos valores numéricos para que no halla tantas probabilidades, lo mejor para hacer naive bayes seria hacer 
+discretización de los valores numéricos como por ejemplo con binning para tomarlos por rangos. Así en vez de tomar los 71 valores posibles de edades, tomaría una
+menor cantidad de rangos.\\
+\begin{center}
+ \includegraphics[scale=0.3]{edades}\\
+\end{center}
+Los datos que no son númericos si caen en opciones predefinidas por lo que salvo los campos que tienen valores con ? no hay inconsistencias en estos datos.
+También otros problemas que hay en los datos que son numéricos es que hay muchos outliers, por ejemplo en horas a la semana la mayoria trabaja alrededor de 40
+pero hay datos que van desde 1 hasta 99.\\
+\begin{center}
+ \includegraphics[scale=0.3]{horas}\\
+\end{center}
+En este caso los outliers se podrían en rangos que sean mayor que un valor y menor que un valor en la discretización que se había planteado previamente.
  
 \end{document}
