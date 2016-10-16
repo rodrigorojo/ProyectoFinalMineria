@@ -11,18 +11,18 @@
 
 \begin{document}
  \maketitle
- 
+
  {\bf Algoritmo 1: Naive Bayes}\\
- 
+
  {\bf Objetivo}\\
- 
+
  El objetivo de Naive Bayes o Clasificador bayesiano ingenuo es la construccion de clasificadores en base a datos que ya se conocen por ejemplo clasificar si una persona es hombre o mujer basandose
- en los datos que se tienen de su altura, peso y tamaño del pie. Se usa basandose en el teorema de Bayes y asume que las variables que se usan para predecir son 
+ en los datos que se tienen de su altura, peso y tamaño del pie. Se usa basandose en el teorema de Bayes y asume que las variables que se usan para predecir son
  independientes\\
- 
+
  {\bf Descripción}\\
- 
- Lo que tenemos es un objeto que es lo que se quiere clasificar, las variables que se van a usar para predecir que son los datos que ya conocemos y distintas clases a donde podria 
+
+ Lo que tenemos es un objeto que es lo que se quiere clasificar, las variables que se van a usar para predecir que son los datos que ya conocemos y distintas clases a donde podria
  ir cada objeto después de la clasificación. Se usa la regla de bayes que dice que si se tienen 2 eventos A y B se saca la probabilidad de A dado B como:
  $$ P(A \mid B) = \frac{P(B \mid A) \, P(A)}{P(B)} $$
  \begin{itemize}
@@ -31,7 +31,7 @@
   \item $P(A)$ y $P(B)$ Son las probabilidades que se cumplan A y B respectivamente, estas son la probabilidad a priori
  \end{itemize}
  Para el clasificador bayesiano ingenuo hay distintas clases en las que puede caer un objeto después de ser clasificado y distintas variables predictivas, entonces
- si tenemos un conjunto de variables predictivas $X=\{x_1,...,x_n\}$ y m clases para la clasificación $C_1,...,C_m$, el clasificador dice que la 
+ si tenemos un conjunto de variables predictivas $X=\{x_1,...,x_n\}$ y m clases para la clasificación $C_1,...,C_m$, el clasificador dice que la
  probabilidad de que un objeto pertenezca a la clase $C_k$ se calcula como:
  \begin{equation*}
  p(C_k|X)=\frac{1}{Z}p(C_k)\prod_{i=1}^{n}p(x_i|C_k)
@@ -40,10 +40,10 @@
   \item $X$ es el conjunto de variables predictivas $X=\{x_1,...,x_n\}$.
   \item $C_k$ es una clase de $C_1,...,C_m$
   \item $Z$ es igual a un factor que depende solo de $x_1,...,x_n$, es una constante si sus valores son conocidos
- 
+
  \end{itemize}
 {\bf Ejemplo:}\\
- 
+
  Un ejemplo es si queremos clasificar frutas, las clases son platano, naranja y otras, se hizó un conjunto de entrenamiento con las variables
  de longitud, sabor y color y nos dio que:
  \begin{center}
@@ -91,9 +91,9 @@
    \item $p(naranja|alargada,dulce,amarilla) = \frac{0}{0\ldotp26}$=0
    \item $p(otras|alargada,dulce,amarilla) = \frac{0\ldotp00057675}{0\ldotp26}$=0.2218
   \end{itemize}
-  La probabilidad mas grande es la de que sea platano, entonces si llega una fruta que sea alargada, dulce y amarilla la clasificamos como que va a ser un 
+  La probabilidad mas grande es la de que sea platano, entonces si llega una fruta que sea alargada, dulce y amarilla la clasificamos como que va a ser un
   platano.\\
-  
+
 {\bf Bibliografía}
 \begin{itemize}
  \item https://en.wikipedia.org/wiki/Naive\_Bayes\_classifier
@@ -109,7 +109,7 @@ filas tienen un ? en vez de alguno de los datos de las opciones que se dan. \\
 \end{center}
 
 También para los datos que son numéricos los datos varian en muchos valores por ejemplo
-edades tiene 71 valores distintos, entonces para estos valores numéricos para que no halla tantas probabilidades, lo mejor para hacer naive bayes seria hacer 
+edades tiene 71 valores distintos, entonces para estos valores numéricos para que no halla tantas probabilidades, lo mejor para hacer naive bayes seria hacer
 discretización de los valores numéricos como por ejemplo con binning para tomarlos por rangos. Así en vez de tomar los 71 valores posibles de edades, tomaría una
 menor cantidad de rangos.\\
 \begin{center}
@@ -123,6 +123,16 @@ pero hay datos que van desde 1 hasta 99.\\
 \end{center}
 En este caso los outliers se podrían en rangos que sean mayor que un valor y menor que un valor en la discretización que se había planteado previamente.
 \\
+
+{\bf Pseudocódigo}
+\begin{verbatim}
+  1.- Convertir el conjunto de datos en una tabla de frecuencias
+  2.- Crear una tabla de probabilidades TP
+  3.- Aplicar la formula de Bayes para calcular la probabilidad de cada clase
+   con ayuda de TP
+  4.- Aplicar la formula del clasificador de naive bayes
+  5.- Regresa la clase con la probabilidad mas alta
+\end{verbatim}
 
 {\bf Algoritmo 2: C4.5}\\
 {\bf Objetivo}\\
@@ -141,7 +151,7 @@ Lo siguiente define una ganancia para una prueba T y su posición p
  \begin{equation*}
  Ganancia(p,T) = -Entropia(p) - \sum_{j=1}^{n}(p_jEntropia(p_j))
  \end{equation*}
-donde los valores (pj) es el conjunto de todos los posibles valores para el atributo T. 
+donde los valores (pj) es el conjunto de todos los posibles valores para el atributo T.
 Podemos usar esta medida para clasificar atributos y construir el árbol de decisión donde en cada nodo se encuentra su atributo con la mayor ganancia de información entre los atributos.\\
 C4.5 utiliza la “ganancia de información”, que permite medir una razón de ganancia.
  La razón de ganancia se define como:\\
@@ -150,11 +160,11 @@ C4.5 utiliza la “ganancia de información”, que permite medir una razón de 
  \begin{equation*}
  DivideInfo(p,test) = - \sum_{j=1}^{n}p'\frac{j}{p}log(p'(\frac{j}{p}))
  \end{equation*}
-donde: $$ p'(\frac{j}{p})$$ 
+donde: $$ p'(\frac{j}{p})$$
 es la proporción de los elementos presentes en la posición de p, tomando el valor de la prueba j-ésima. La definición anterior es independiente de la distribución de ejemplos dentro de las diferentes clases.\\
 Entonces los datos se clasifican en cada nodo del árbol con el fin de determinar el mejor atributo de división. Utiliza el método de la razón de ganancia para evaluar el atributo de división.
 Los árboles de decisión se construyen en C4.5 mediante el uso de un conjunto de datos de entrenamiento o conjuntos de datos. En cada nodo de la árbol, C4.5 elige un atributo de los datos que más eficazmente divida su conjunto de muestras en subconjuntos.  Su criterio es la ganancia de información normalizada (Diferencia de entropía) que resulta de la elección de una atributo para dividir los datos. El atributo con la ganancia de información normalizada más alta es elegido para tomar la decisión.\\
- 
+
  {\bf Ejemplo}\\
  Conjunto de datos S:
 \begin{center}
@@ -166,11 +176,11 @@ Entropía(S) = -9/14*log2(9/14)-5/14*log2(5/14) = 0.94
 Cálculos para los primeros atributos:\\
 Ganancia(S, Outlook) = Entropía(S) – 5/14*Entropía $(S_Sun)$
 					- 4/14*Entropía $(S_Rain)$
-					- 5/14*Entropía $(S_Overcast)$	
+					- 5/14*Entropía $(S_Overcast)$
 					= 0.94 – 5/14*0.9710 – 4/14*0 – 5/14*0.9710
-			
+
 			Gain(S, Outlook) = 0.246\\
-			
+
 Cálculos de Entropías:\\
 Entropía$(S_Sun)$ = - 2/5*log2(2/5) – 3/5*log2(3/5) = 0.9710\\
 Entropía$(S_Rain)$ = -4/4*log2(4/4) – 0*log2(0) = 0\\
@@ -203,7 +213,7 @@ Entonces quien tiene la mayor ganancia de información es el nodo raíz del árb
 {\bf Bibliografía}
 \begin{itemize}
  \item https://en.wikipedia.org/wiki/C4.5\_algorithm
- \item Articulo: A comparative study of decision tree ID3 and C4.5. Autores: Badr HSSINA, Abdelkarim MERBOUHA,Hanane EZZIKOURI,Mohammed ERRITALI 
+ \item Articulo: A comparative study of decision tree ID3 and C4.5. Autores: Badr HSSINA, Abdelkarim MERBOUHA,Hanane EZZIKOURI,Mohammed ERRITALI
 \end{itemize}
 
 
@@ -219,4 +229,22 @@ Apoyandonos de las gŕaficas obtenidas anteriormente en el algoritmo 1 y dado qu
 Entonces dado que en nuestro conjunto de datos fuente tenemos valores desconocidos (?) podríamos no hacer limpieza de datos en los campos workclass, occupation y native-country y así ejecutar el algoritmo.\\
 
 También habría necesidad de hacer discretización de los datos ya que algunos rangos de atributos difieren demasiado.
+
+{\bf Pseudocódigo}\\
+Los casos base de este algoritmo son:
+\begin{itemize}
+  \item Todas las muestras en la lista pertenecen a la misma clase. Cuando esto sucede, simplemente crea un nodo de hoja para el árbol de decisión diciendo que elija esa clase.
+  \item Ninguna de las características proporciona ninguna ganancia de información. En este caso, C4.5 crea un nodo de decisión más arriba del árbol utilizando el valor esperado de la clase.
+  \item Instancia de la clase previamente no vista encontrada. Una vez más, C4.5 crea un nodo de decisión más arriba en el árbol con el valor esperado.
+\end{itemize}
+Entonces el pseudocódigo nos queda de la siguiente manera:
+\begin{verbatim}
+  1.- Comprobar los casos base
+  2.- for( a : atributos)
+  3.-    Encontrar la ganancia de información normalizada de la división de a
+  4.- a_best = el atributo con la ganancia de información normalizada más alta
+  5.- nuevonodo = nodo de decisión que divida a_best
+  6.- Repetir en las sublistas obtenidas por división de a_best,
+       y agregar estos nodos como hijos de nodo
+\end{verbatim}
 \end{document}
