@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm,letterpaper]{geometry}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\title{Diccionario	de	definiciones	del	conjunto	de	datos	fuente}
+\author{Juan Carlos López López \and Adolfo Marín Arriaga \and Luis Rodrigo Rojo Morales}
+\date{\today\\}
+
+\begin{document}
+ \maketitle
+ \begin{enumerate}
+   \item \textbf{age}
+     \begin{itemize}
+       \item \textbf{En español:} Edad
+       \item \textbf{Definición:} Tiempo que ha vivido una persona contando desde su nacimiento.
+       \item \textbf{Posibles Valores:} Valor abierto (Natural)
+     \end{itemize}
+   \item \textbf{workclass}
+     \begin{itemize}
+       \item \textbf{En español:} Clase de Trabajo
+       \item \textbf{Definición:} Esto nos dice a que clase pertenece su trabajo.
+       \item \textbf{Posibles Valores:} Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov, Without-pay, Never-worked.
+     \end{itemize}
+    \item \textbf{fnlwgt} (final weight)
+    \begin{itemize}
+       \item \textbf{En español:}Peso total.
+       \item \textbf{Definición:} Este termino se refiere a el total poblacional derivado de CPS al crear "weighted tallies" de cualquier características socioeconómicas específicas de la población.
+       \item \textbf{Posibles Valores:} Valor abierto (6 digitos)
+    \end{itemize}
+    \item \textbf{education}
+     \begin{itemize}
+       \item \textbf{En español:} Educación
+       \item \textbf{Definición:} Formación destinada a desarrollar la capacidad intelectual, moral y afectiva de las personas de acuerdo con la cultura y las normas de convivencia de la sociedad a la que pertenecen.
+       \item \textbf{Posibles Valores:}  Bachelors, Some-college, 11th, HS-grad, Prof-school, Assoc-acdm, Assoc-voc, 9th, 7th-8th, 12th, Masters, 1st-4th, 10th, Doctorate, 5th-6th, Preschool
+     \end{itemize}
+     \item \textbf{education-num}
+     \begin{itemize}
+       \item \textbf{Definición:} Matricula de educación
+       \item \textbf{Posibles Valores:}  Bachelors, Some-college, 11th, HS-grad, Prof-school, Assoc-acdm, Assoc-voc, 9th, 7th-8th, 12th, Masters, 1st-4th, 10th, Doctorate, 5th-6th, Preschool
+     \end{itemize}
+     \item \textbf{marital-status}
+     \begin{itemize}
+       \item \textbf{En español:} Estado Civil
+       \item \textbf{Definición:} Condición de una persona según el registro civil en función de si tiene o no pareja y su situación legal respecto a esto.
+       \item \textbf{Posibles Valores:}  Married-civ-spouse, Divorced, Never-married, Separated, Widowed, Married-spouse-absent, Married-AF-spouse.
+     \end{itemize}
+     \item \textbf{occupation}
+     \begin{itemize}
+       \item \textbf{En español:} Ocupación
+       \item \textbf{Definición:} Es el oficio o profesión de una persona.
+       \item \textbf{Posibles Valores:}  Tech-support, Craft-repair, Other-service, Sales, Exec-managerial, Prof-specialty, Handlers-cleaners, Machine-op-inspct, Adm-clerical, Farming-fishing, Transport-moving, Priv-house-serv, Protective-serv, Armed-Forces.
+     \end{itemize}
+     \item \textbf{relationship}
+     \begin{itemize}
+       \item \textbf{En español:} Relación en su familia
+       \item \textbf{Definición:} Se refiere a funcion que hace en su familia.
+       \item \textbf{Posibles Valores:} Wife, Own-child, Husband, Not-in-family, Other-relative, Unmarried.
+     \end{itemize}
+     \item \textbf{race}
+     \begin{itemize}
+       \item \textbf{En español:} Raza
+       \item \textbf{Definición:} Se define como un grupo de personas con ciertas características hereditarias comunes que las distinguen de otros grupos de personas.
+       \item \textbf{Posibles Valores:} White, Asian-Pac-Islander, Amer-Indian-Eskimo, Other, Black.
+     \end{itemize}
+     \item \textbf{sex}
+     \begin{itemize}
+       \item \textbf{En español:} Sexo
+       \item \textbf{Definición:} Es el conjunto de las peculiaridades que caracterizan los individuos de una especie dividiéndolos en masculinos y femeninos.
+       \item \textbf{Posibles Valores:} Female, Male.
+     \end{itemize}
+     \item \textbf{capital-gain}
+     \begin{itemize}
+       \item \textbf{En español:} Ganacia Capital
+       \item \textbf{Definición:} Ingreso de inversiones, aparte del salario.
+       \item \textbf{Posibles Valores:} Valor abierto.
+     \end{itemize}
+     \item \textbf{capital-loss}
+     \begin{itemize}
+       \item \textbf{En español:} Perdida Capital
+       \item \textbf{Definición:} Perdidas de inversiones, aparte del salario.
+       \item \textbf{Posibles Valores:} Valor abierto.
+     \end{itemize}
+     \item \textbf{hours-per-week}
+     \begin{itemize}
+       \item \textbf{En español:} Horas a la semana
+       \item \textbf{Definición:} Total de horas que trabaja a la semana
+       \item \textbf{Posibles Valores:} Valor abierto.
+     \end{itemize}
+     \item \textbf{native-country}
+     \begin{itemize}
+       \item \textbf{En español:} Pais de origen.
+       \item \textbf{Definición:} Pais donde nacio la persona.
+       \item \textbf{Posibles Valores:}  United-States, Cambodia, England, Puerto-Rico, Canada, Germany, Outlying-US(Guam-USVI-etc), India, Japan, Greece, South, China, Cuba, Iran, Honduras, Philippines, Italy, Poland, Jamaica, Vietnam, Mexico, Portugal, Ireland, France, Dominican-Republic, Laos, Ecuador, Taiwan, Haiti, Columbia, Hungary, Guatemala, Nicaragua, Scotland, Thailand, Yugoslavia, El-Salvador, Trinadad and Tobago, Peru, Hong, Holand-Netherlands.
+     \end{itemize}
+   \end{enumerate}
+
+\end{document}
