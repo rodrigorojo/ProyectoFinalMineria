@@ -44,13 +44,14 @@ SELECT (SELECT COUNT(*) FROM ADULT WHERE EDUCATION = ' 10th') AS "10th",
 	(SELECT COUNT(*) FROM ADULT WHERE EDUCATION = ' Assoc-voc') AS "Assoc-voc", 
 	(SELECT COUNT(*) FROM ADULT WHERE EDUCATION = ' Bachelors') AS "Bachelors", 
 	(SELECT COUNT(*) FROM ADULT WHERE EDUCATION = ' Doctorate') AS "Doctorate", 
-	(SELECT COUNT(*) FROM ADULT WHERE EDUCATION = ' Doctorate') AS "HS-grad",
+	(SELECT COUNT(*) FROM ADULT WHERE EDUCATION = ' HS-grad') AS "HS-grad",
 	(SELECT COUNT(*) FROM ADULT WHERE EDUCATION = ' Masters') AS "Masters", 
 	(SELECT COUNT(*) FROM ADULT WHERE EDUCATION = ' Preschool') AS "Preschool", 
 	(SELECT COUNT(*) FROM ADULT WHERE EDUCATION = ' Prof-school') AS "Prof-school", 
 	(SELECT COUNT(*) FROM ADULT WHERE EDUCATION = ' Some-college') AS "Some-college"
 	INTO EDUCATION;
 SELECT * FROM EDUCATION;
+drop table education
 -------------------------------------------------------------------------------------------
 --TABLA DE FRECUENCIAS DE MARITAL_STATUS
 SELECT (SELECT COUNT(*) FROM ADULT WHERE MARITAL_STATUS = ' Married-civ-spouse') AS "Married-civ-spouse",
@@ -159,3 +160,8 @@ SELECT (SELECT COUNT(*) FROM ADULT WHERE NATIVE_COUNTRY = ' United-States') AS "
 	INTO NATIVE_COUNTRY;
 SELECT * FROM NATIVE_COUNTRY;
 -------------------------------------------------------------------------------------------
+--TABLA DE TOTAL
+SELECT (SELECT COUNT(*) FROM ADULT WHERE TOTAL = ' <=50K') AS "<=50K",
+	(SELECT COUNT(*) FROM ADULT WHERE TOTAL = ' >50K') AS ">50K"
+	INTO TOTAL;
+SELECT * FROM TOTAL;
