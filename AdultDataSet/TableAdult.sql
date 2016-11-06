@@ -3,7 +3,7 @@
 	workclass VARCHAR(32),
 	fnlwgt INT,
 	education VARCHAR(32),
-	education_num VARCHAR(32),
+	education_num INT,
 	marital_status VARCHAR(32),
 	occupation VARCHAR(32),
 	relationship VARCHAR(32),
