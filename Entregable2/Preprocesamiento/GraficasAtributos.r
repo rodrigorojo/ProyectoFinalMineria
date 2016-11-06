@@ -1,4 +1,4 @@
-adult = read.csv("/Users/rodrigorojo/Desktop/preprocess/Adult-data.csv")
+adult = read.csv("/Users/rodrigorojo/Documents/CC/7Semestre/ProyectoFinalMineria/AdultDataSet/Adult-data.csv")
 #Edad
 ed <- matrix(adult[,1])
 barplot(table(ed),
