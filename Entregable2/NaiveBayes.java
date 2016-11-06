@@ -3,16 +3,16 @@ import java.util.*;
 public class NaiveBayes {
 
 	String[] clases;
-	String[] atrubutos;
+	String[] atributos;
 	int[][] tabla;
 	int tc, tv;
 
 	public NaiveBayes(String[] c, String[] a, int[][] t) {
 		this.clases = c;
-		this.atrubutos = a;
+		this.atributos = a;
 		this.tabla = t;
 		tc = c.length-1;
-		tv = v.length-1;
+		tv = a.length-1;
 	}
 
 	public String clasifica(String[] variables) {
@@ -27,7 +27,7 @@ public class NaiveBayes {
 		}
 		return clasepred;
 	}
-	
+
 	public double bayes(String variable, String clase) {
 		int v = Arrays.asList(this.atributos).indexOf(variable);
 		int c = Arrays.asList(this.clases).indexOf(clase);
@@ -46,7 +46,7 @@ public class NaiveBayes {
 	public double probz(String[] variables) {
 		double probac = 1.0;
 		for (String vs : variables) {
-			int v = Arrays.asList(this.atrubutos).indexOf(vs);
+			int v = Arrays.asList(this.atributos).indexOf(vs);
 			double pv = tabla[tc][v]/tabla[tc][tv];
 			probac *= pv;
 		}
