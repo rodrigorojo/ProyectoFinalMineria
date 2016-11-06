@@ -5,14 +5,14 @@ public class NaiveBayes {
 	String[] clases;
 	String[] atributos;
 	int[][] tabla;
-	int tc, tv;
+	int tc, ta;
 
 	public NaiveBayes(String[] c, String[] a, int[][] t) {
 		this.clases = c;
 		this.atributos = a;
 		this.tabla = t;
 		tc = c.length-1;
-		tv = a.length-1;
+		ta = a.length-1;
 	}
 
 	public String clasifica(String[] variables) {
@@ -31,15 +31,15 @@ public class NaiveBayes {
 	public double bayes(String variable, String clase) {
 		int v = Arrays.asList(this.atributos).indexOf(variable);
 		int c = Arrays.asList(this.clases).indexOf(clase);
-		double pc = tabla[c][tv]/tabla[tc][tv];
-		double pv = tabla[tc][v]/tabla[tc][tv];
+		double pc = tabla[c][ta]/tabla[tc][ta];
+		double pv = tabla[tc][v]/tabla[tc][ta];
 		double pvc = tabla[c][v]/tabla[tc][v];
 		return (pc*pvc)/pv;
 	}
 
 	public double probclase(String clase) {
 		int c = Arrays.asList(this.clases).indexOf(clase);
-		double pc = tabla[c][tv]/tabla[tc][tv];
+		double pc = tabla[c][ta]/tabla[tc][ta];
 		return pc;
 	}
 
@@ -47,7 +47,7 @@ public class NaiveBayes {
 		double probac = 1.0;
 		for (String vs : variables) {
 			int v = Arrays.asList(this.atributos).indexOf(vs);
-			double pv = tabla[tc][v]/tabla[tc][tv];
+			double pv = tabla[tc][v]/tabla[tc][ta];
 			probac *= pv;
 		}
 		return probac;
