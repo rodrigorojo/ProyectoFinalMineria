@@ -81,7 +81,6 @@ Podemos observar que {\it education} es lo mismo que {\it education\_num}, es de
   \begin{center}
     \hbox{\hspace{-5.5em}\includegraphics[scale=0.45]{graficas/edadEdu}}
   \end{center}
-
   \begin{center}
     \hbox{\hspace{-5.5em}\includegraphics[scale=0.45]{graficas/edadHoras}}
   \end{center}
@@ -101,7 +100,7 @@ Podemos observar que {\it education} es lo mismo que {\it education\_num}, es de
     \hbox{\hspace{-5.5em}\includegraphics[scale=0.45]{graficas/Sexo-RelFam}}
   \end{center}
 \section{Preprocesamiento}
-  Lo primero que haremos es eliminar al atributo {\it education\_num}, despues generaremos las tablas de frecuencias de cada atributo, estas se pueden encontrar en el archivo {\it preprocesamiento.sql}. Solo faltaria graficar las tablas obtenidas
+  Lo primero que haremos es eliminar al atributo {\it education\_num}, también será eliminado el atributo {\it fnlwgt} ya que nos proporciona información de grupos con caracteristicas demograficas parecidas pero no sabemos el significado exacto del número, porque en la documentación del conjunto de datos no viene como es obtenido, después generaremos las tablas de frecuencias de cada atributo, estas se pueden encontrar en el archivo {\it preprocesamiento.sql}. Solo faltaria graficar las tablas obtenidas
   \begin{center}
     \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/edadesP}}
   \end{center}
@@ -138,6 +137,14 @@ Podemos observar que {\it education} es lo mismo que {\it education\_num}, es de
     \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/sexoP}}
   \end{center}
   Mas del 60\% de nuestra población es hombre.
+  \begin{center}
+    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/gananciaCapital}}
+  \end{center}
+  Podemos observar que mas de la mitad tiene 0
+  \begin{center}
+    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/perdidaCapital}}
+  \end{center}
+  Lo mimso que en el anterior la mayoria tiene valor cero.
   \begin{center}
     \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/hpwP}}
   \end{center}
