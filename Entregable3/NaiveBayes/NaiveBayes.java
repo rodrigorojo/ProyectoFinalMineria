@@ -48,9 +48,14 @@ public class NaiveBayes {
 		String clasepred = "s";
 		double max = -1;
 		double pz = probz(variables);
+		System.out.println("prob z: "+pz);
 		for (String cs : this.clases) {
 			double pvp = prob_var_pred(variables,cs);
+			double prc = probclase(cs);
+			System.out.println("probclase: "+cs+":"+prc);
+			pvp *= prc;
 			pvp *= (1/pz);
+			System.out.println("nb clase: "+cs+":"+pvp);
 			if (pvp > max) {
 				max = pvp;
 				clasepred = cs;
@@ -68,10 +73,13 @@ public class NaiveBayes {
 	public double bayes(String variable, String clase) {
 		int v = this.atributos.indexOf(variable);
 		int c = this.clases.indexOf(clase);
-		double pc = tabla[c][ta]/tabla[tc][ta];
+		/*double pc = tabla[c][ta]/tabla[tc][ta];
 		double pv = tabla[tc][v]/tabla[tc][ta];
 		double pvc = tabla[c][v]/tabla[tc][v];
-		return (pc*pvc)/pv;
+		return (pc*pvc)/pv;*/
+		double bys = this.tabla[c][v]/this.tabla[tc][v];
+		System.out.println("prov "+variable+" dado "+clase+": " + bys);
+		return bys;
 	}
 
 	/**
@@ -109,8 +117,6 @@ public class NaiveBayes {
 	*/
 	public double prob_var_pred(String[] variables, String clase) {
 		double probac = 1.0;
-		double pc = probclase(clase);
-		probac *= pc;
 		for (String vs : variables) {
 			double pv = bayes(vs,clase);
 			probac *= pv;

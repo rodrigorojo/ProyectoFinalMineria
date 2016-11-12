@@ -10,7 +10,7 @@ public class NBAdultDataSet {
     ArrayList<String> atributos = cm.getAtributos();
     double[][] tabla = cm.getTabla();
     NaiveBayes ads = new NaiveBayes(clases,atributos,tabla);
-    String[] predice = {"Black","Female"};
+    String[] predice = {"Doctorate","Self-emp-inc","CG-MAYOR-CERO"};
     String prediccion = ads.clasifica(predice);
     System.out.println("con los atributos:");
     for (String pr : predice) {
