@@ -8,8 +8,14 @@ public class NBAdultDataSet {
     clases.add(">50k");
     clases.add("<=50k");
     ArrayList<String> atributos = cm.getAtributos();
-    for (String s :atributos ) {
-      System.out.println(s);
+    double[][] tabla = cm.getTabla();
+    NaiveBayes ads = new NaiveBayes(clases,atributos,tabla);
+    String[] predice = {"Black","Female"};
+    String prediccion = ads.clasifica(predice);
+    System.out.println("con los atributos:");
+    for (String pr : predice) {
+      System.out.println(pr);
     }
+    System.out.println("cae en la clase: "+prediccion);
   }
 }
