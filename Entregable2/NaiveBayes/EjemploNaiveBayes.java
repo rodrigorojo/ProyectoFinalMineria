@@ -11,7 +11,7 @@ public class EjemploNaiveBayes {
         {500,500,650,350,800,200,1000}
       };
       NaiveBayes frutas = new NaiveBayes(clases,atributos,frecuencias);
-      String[] predice = {"No Alargada","Amarilla","Dulce"};
+      String[] predice = {"Alargada","Amarilla","Dulce"};
       String prediccion = frutas.clasifica(predice);
       //frutas.imprimetabla();
       System.out.println("con los atributos:");

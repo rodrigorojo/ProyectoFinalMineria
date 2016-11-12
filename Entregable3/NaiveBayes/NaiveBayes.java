@@ -73,12 +73,8 @@ public class NaiveBayes {
 	public double bayes(String variable, String clase) {
 		int v = this.atributos.indexOf(variable);
 		int c = this.clases.indexOf(clase);
-		/*double pc = tabla[c][ta]/tabla[tc][ta];
-		double pv = tabla[tc][v]/tabla[tc][ta];
-		double pvc = tabla[c][v]/tabla[tc][v];
-		return (pc*pvc)/pv;*/
-		double bys = this.tabla[c][v]/this.tabla[tc][v];
-		System.out.println("prov "+variable+" dado "+clase+": " + bys);
+		double bys = this.tabla[c][v]/this.tabla[c][ta];
+		System.out.println("prov "+variable+" | "+clase+": " + bys);
 		return bys;
 	}
 
