@@ -9,7 +9,7 @@ public class AdultC45 {
 	public static void main(String[] args) throws IOException {
 
 		/*Leemos el archivo csv y lo guardamos de manera que podamos trabajar con los datos*/
-		String archivo[] = {"adult.csv"};
+		String archivo[] = {"AdultPrepoc.csv"};
 		
 		Scanner lee = new Scanner(new File(archivo[0]));
 		String headerLine = lee.nextLine();
@@ -51,6 +51,11 @@ public class AdultC45 {
 			for(int i = 0; i < numAtributos; i++){
 				Opc datos = new Opc(lineasC[i], lineasC[columnaClases]);
 				atributos[i].valores(datos);
+			}
+
+			for(int i = 0; i < numAtributos; i++){
+				Opc datos2 = new Opc(lineasC[i]);
+				atributos[i].valores2(datos2);
 			}
 		}
 

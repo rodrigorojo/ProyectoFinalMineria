@@ -52,6 +52,11 @@ public class EjemploC45 {
 				Opc datos = new Opc(lineasC[i], lineasC[columnaClases]);
 				atributos[i].valores(datos);
 			}
+
+			for(int i = 0; i < numAtributos; i++){
+				Opc datos2 = new Opc(lineasC[i]);
+				atributos[i].valores2(datos2);
+			}
 		}
 
 		/*2 tipos de clase en nuestro ejemplo*/
@@ -60,15 +65,23 @@ public class EjemploC45 {
 			totalClases += i;
 		}
 
+		double ganancia = 0.0;
+		double division = 0.0;
+
 		/*Se imprimen los resultados*/
 		for(AlgoritmoC45 a : atributos){
-			a.ganancia(a.entropiaConjunto(numClases, totalClases), totalClases);
+			ganancia = a.ganancia(a.entropiaConjunto(numClases, totalClases), totalClases);
+			division = a.i_Division(numClases, totalClases);
+			a.proporcionGanancia(ganancia, division);
 			System.out.println(a.nombre);
-			System.out.println("Ganancia: " + a.gananci + "\n");
+			System.out.println("Proporción Ganancia: " + a.proporGanancia + "\n");
+			ganancia = 0.0;
+			division = 0.0;
 		}
 		
 		
 	}
+
 	
 
 }
