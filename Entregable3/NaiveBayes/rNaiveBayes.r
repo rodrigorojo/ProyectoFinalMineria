@@ -6,3 +6,5 @@ predicitions <- predict(classifier, datest[,-15])
 pr <- as.vector(predicitions)
 ok <- datest$V15 == pr
 table(ok)
+table(datest$V15)
+table(pr)
