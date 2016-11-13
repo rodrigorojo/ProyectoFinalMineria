@@ -49,5 +49,8 @@ public class CreaMatriz {
     }
     return frec;
   }
+  public String[][] getTablaString(){
+    return tf;
+  }
 
 }
