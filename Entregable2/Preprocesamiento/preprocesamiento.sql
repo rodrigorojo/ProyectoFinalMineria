@@ -108,6 +108,18 @@ SELECT (SELECT COUNT(*) FROM ADULT WHERE SEX = ' Female') AS "Female",
 	INTO SEX;
 SELECT * FROM SEX;
 -------------------------------------------------------------------------------------------
+--TABLA DE CAPITAL GAIN
+SELECT (SELECT COUNT(*) FROM ADULT WHERE CAPITAL_GAIN = 0) AS "CG-CERO",
+	(SELECT COUNT(*) FROM ADULT WHERE CAPITAL_GAIN > 0) AS "CG-MAYOR-CERO"
+	INTO CAPITAL_GAIN;
+SELECT * FROM CAPITAL_GAIN;
+-------------------------------------------------------------------------------------------
+--TABLA DE CAPITAL LOSS
+SELECT (SELECT COUNT(*) FROM ADULT WHERE CAPITAL_LOSS = 0) AS "CL-CERO",
+	(SELECT COUNT(*) FROM ADULT WHERE CAPITAL_LOSS > 0) AS "CL-MAYOR-CERO"
+	INTO CAPITAL_LOSS;
+SELECT * FROM CAPITAL_LOSS;
+-------------------------------------------------------------------------------------------
 --TABLA DE HORAS A LA SEMANA POR RANGOS DE 20
 SELECT (SELECT COUNT(*) FROM ADULT WHERE HOURS_PER_WEEK BETWEEN 0 AND 20) as "10-20", 
 	(SELECT COUNT(*) FROM ADULT WHERE HOURS_PER_WEEK BETWEEN 21 AND 40) as "21-40", 
@@ -159,6 +171,12 @@ SELECT (SELECT COUNT(*) FROM ADULT WHERE NATIVE_COUNTRY = ' United-States') AS "
 	(SELECT COUNT(*) FROM ADULT WHERE NATIVE_COUNTRY = ' ?') AS "?"
 	INTO NATIVE_COUNTRY;
 SELECT * FROM NATIVE_COUNTRY;
+----------------------------------
+SELECT (SELECT COUNT(*) FROM ADULT WHERE NATIVE_COUNTRY = ' United-States') AS "United-States",
+	(SELECT COUNT(*) FROM ADULT WHERE NATIVE_COUNTRY NOT LIKE ' United-States' AND NATIVE_COUNTRY NOT LIKE ' ?') AS "Foreigner",
+	(SELECT COUNT(*) FROM ADULT WHERE NATIVE_COUNTRY = ' ?') AS "COUNTRY-?"
+	INTO NATIVE_COUNTRY_1;
+SELECT * FROM NATIVE_COUNTRY_1;
 -------------------------------------------------------------------------------------------
 --TABLA DE TOTAL
 SELECT (SELECT COUNT(*) FROM ADULT WHERE TOTAL = ' <=50K') AS "<=50K",
