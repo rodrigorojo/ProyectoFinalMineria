@@ -24,6 +24,8 @@ public class TestAdultDataSet{
     int menor = 0;
     int predMayor = 0;
     int predMenor = 0;
+    int predMayorMal = 0;
+    int predMenorMal = 0;
     for (int i = 0; i< cmPrueba.fils;i++) {
       String[] p ={rangoAge(data[i][0]),rangoWorkclass(data[i][1]),data[i][3],
                   data[i][5],rangoOccupation(data[i][6]),data[i][7],rangoRace(data[i][8]),data[i][9],
@@ -36,9 +38,13 @@ public class TestAdultDataSet{
                   +rangoCountry(data[i][13])+"\"");
 
       System.out.println((i+1) +": Prediccion: "+prediccion+" - Verdadero: "+data[i][14]+ " - fallo: "+!prediccion.equals(data[i][14]));*/
-      if (!prediccion.equals(data[i][14]))
+      if (!prediccion.equals(data[i][14])){
         mal++;
-      else
+        if(prediccion.equals(">50K"))
+          predMayorMal++;
+        else
+          predMenorMal++;
+      }else
         bien++;
 
       if(data[i][14].equals(">50K"))
@@ -52,12 +58,16 @@ public class TestAdultDataSet{
         predMenor++;
 
     }
-    System.out.println("Clasifico " + mal +" mal");
-    System.out.println("Clasifico " + bien +" bien");
-    System.out.println("Hay  " + mayor +" >50K");
-    System.out.println("Hay  " + menor +" <=50K");
-    System.out.println("Hay  " + predMayor +" predicciones >50K");
-    System.out.println("Hay  " + predMenor +" predicciones <=50K");
+    System.out.println("Clasifico " + mal +" mal.");
+    System.out.println("Clasifico " + bien +" bien.");
+    System.out.println("Hay  " + mayor +" >50K.");
+    System.out.println("Hay  " + menor +" <=50K.");
+    System.out.println("Hay  " + predMayor +" predicciones >50K.");
+    System.out.println("Hay  " + predMenor +" predicciones <=50K.");
+    System.out.println("Predijo "+predMayorMal+" como >50k pero son <=50k.");
+    System.out.println("Predijo "+predMenorMal+" como <=50k pero son >50k.");
+    System.out.println("Por lo tanto hay: "+(predMayor-predMayorMal)+" predicciones de >50K bien y "
+                                            +(predMenor-predMenorMal)+" predicciones de <=50K bien.");
   }
   public static String rangoAge(String numero){
     String rango = "";
