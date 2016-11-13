@@ -68,7 +68,7 @@ public class AlgoritmoC45 {
 		double z = (-w)*(Math.log((w) / Math.log(2)));
 		i_division = a + a + x + z;
 
-		System.out.println(i_division);
+
 		return i_division;
 
 	}

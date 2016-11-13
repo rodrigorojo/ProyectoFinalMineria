@@ -4,12 +4,12 @@ import java.io.IOException;
 
 
 
-public class EjemploC45 {
+public class AdultC45 {
 
 	public static void main(String[] args) throws IOException {
 
 		/*Leemos el archivo csv y lo guardamos de manera que podamos trabajar con los datos*/
-		String archivo[] = {"data.csv"};
+		String archivo[] = {"adult.csv"};
 		
 		Scanner lee = new Scanner(new File(archivo[0]));
 		String headerLine = lee.nextLine();
