@@ -11,4 +11,11 @@
 \date{\today\\}
 \begin{document}
  \maketitle
+ En la primera iteración lo que nos ayudo bastante para hacer preprocesamiento de los datos fue graficarlos, estas gráficas la podemos ver en el archivo \href{https://github.com/rodrigorojo/ProyectoFinalMineria/blob/master/Entregable2/Preprocesamiento/Preprocesamiento.pdf} {/Entregable2/Preprocesamiento/Preprocesamiento.pdf}, después de ver el comportamiento de los datos, vimos que algunos datos numéricos estaban muy variados, por ejemplo en {\it hours\_per\_week} los datos van desde 0 horas hasta 100 horas, pero mas de la mitad estaba en 40 horas, por lo que se nos hizo buena idea aplicar {\it Binning}, con esta técnica nos quedaron rangos de 0 horas a 20 horas, 21 horas 40 horas,..., 81 horas a 100 horas. Y análogamente para el atributo {\it age}.\\
+
+ También los atributos {\it capital\_gain, capital\_loss y native\_country} cada uno tiene un valor el cual es el más frecuente, por lo que decidimos solo enfocarnos en ese valor al momento de hacer las tablas de frecuencias, las cuales son necesarias al usar el algoritmo Naive Bayes, por ejemplo, en {\it native\_country} teníamos que el atributo más frecuente era {\it United-States}, entonces todos los demas valores distintos a este le pusimos {\it Foreigner}, similarmente con {\it capital\_gain, capital\_loss} pero con el valor 0, esto nos ayudo bastante a bajar la carnalidad de la tabla de frecuencias.\\
+
+ Al momento de hacer la mineria de datos en particular Naive Bayes la implementacion resulto fácil, puesto que solo habia que tener la tabla de frecuencias y aplicar las formulas correspondientes, mientras que para implementar C4.5 ya no resultó tan facil...\\
+
+ Los resultados de las técnicas que usamos nos parecieron con un buen rendimiento, por lo que no vemos la necesidad de usar otras.
 \end{document}
