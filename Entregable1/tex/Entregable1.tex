@@ -134,9 +134,9 @@ En este caso los outliers se podrían en rangos que sean mayor que un valor y me
   5.- Regresa la clase con la probabilidad mas alta
 \end{verbatim}
 
-{\bf Algoritmo 2: C4.5}\\
-{\bf Objetivo}\\
-Generar un árbol de decisión, por tanto es útil en problemas de clasificación, y por esta razón, C4.5 está casi siempre referido como un clasificador estadístico.\\
+{\bf Algoritmo 2: C4.5}\\\\
+{\bf Objetivo}\\\\
+Generar un árbol de decisión, por tanto es útil en problemas de clasificación, y por esta razón, C4.5 está casi siempre referido como un clasificador estadístico.\\\\
  {\bf Descripción}\\
  Para mencionar la forma de trabajar de este algoritmo en primer lugar hay que mencionar que lasteorías de Shannon son la base del algoritmo C4.5. La entropía de Shannon es la más conocido y más aplicado. Ésta define la cantidad de información proporcionada por un evento.\\
 
@@ -145,6 +145,8 @@ En general, si damos una distribución de probabilidad \[P = (p_1, p_2,..., p_n)
  \begin{equation*}
  Entropia(P) = -\sum_{i=1}^{n}p_ilog(p_i)
  \end{equation*}
+La Entropía se define como  la probabilidad de que ocurra cada uno de los posibles resultados.\\
+
 Ganancia de Información G(p,T):\\
 Tenemos funciones que nos permiten medir el grado de clases mezcladas para todas las muestras y por tanto cualquier posición de el árbol en la construcción. Queda por definir una función para seleccionar la prueba que debe etiquetar al nodo actual.\\
 Lo siguiente define una ganancia para una prueba T y su posición p
@@ -153,9 +155,11 @@ Lo siguiente define una ganancia para una prueba T y su posición p
  \end{equation*}
 donde los valores (pj) es el conjunto de todos los posibles valores para el atributo T.
 Podemos usar esta medida para clasificar atributos y construir el árbol de decisión donde en cada nodo se encuentra su atributo con la mayor ganancia de información entre los atributos.\\
-C4.5 utiliza la “ganancia de información”, que permite medir una razón de ganancia.
- La razón de ganancia se define como:\\
- $$ RazonGanancia(p,T) = \frac{Ganancia(p,T)}{DivideInfo(p,T)} $$
+Se define la ganancia como la diferencia entre la entropía de un nodo y la de uno de sus descendientes.\\\
+
+C4.5 utiliza la “ganancia de información”, que permite medir una proporción de ganancia. Ya que la ganancia (previamente mencionada) proporciona una ventaja a atributos con gran cantidad de valores.
+ La proporción de ganancia se define como:\\
+ $$ ProporcionGanancia(p,T) = \frac{Ganancia(p,T)}{DivideInfo(p,T)} $$
  donde DivideInfo es:\\
  \begin{equation*}
  DivideInfo(p,test) = - \sum_{j=1}^{n}p'\frac{j}{p}log(p'(\frac{j}{p}))
