@@ -1,4 +1,4 @@
-datest = read.csv("AdultDataSetTest.csv", header = FALSE)
+datest = read.csv("/Users/rodrigorojo/Documents/CC/7Semestre/ProyectoFinalMineria/Entregable3/NaiveBayes/AdultDataSetTest.csv", header = FALSE)
 library(class)
 library(e1071)
 classifier<-naiveBayes(datest[,1:14], datest[,15])

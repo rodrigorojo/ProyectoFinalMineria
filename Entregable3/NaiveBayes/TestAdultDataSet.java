@@ -32,12 +32,7 @@ public class TestAdultDataSet{
                   rangoCapitalGain(data[i][10]),rangoCapitalLoss(data[i][11]),rangoHoursPW(data[i][12]),
                   rangoCountry(data[i][13])};
       String prediccion = ads.clasifica(p);
-      /*System.out.println("\""+rangoAge(data[i][0])+"\",\""+rangoWorkclass(data[i][1])+"\",\""+data[i][3]+"\",\""
-                  +data[i][5]+"\",\""+rangoOccupation(data[i][6])+"\",\""+data[i][7]+"\",\""+rangoRace(data[i][8])+"\",\""+data[i][9]+"\",\""
-                  +rangoCapitalGain(data[i][10])+"\",\""+rangoCapitalLoss(data[i][11])+"\",\""+rangoHoursPW(data[i][12])+"\",\""
-                  +rangoCountry(data[i][13])+"\"");
 
-      System.out.println((i+1) +": Prediccion: "+prediccion+" - Verdadero: "+data[i][14]+ " - fallo: "+!prediccion.equals(data[i][14]));*/
       if (!prediccion.equals(data[i][14])){
         mal++;
         if(prediccion.equals(">50K"))
