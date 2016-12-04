@@ -13,6 +13,8 @@ public class TestAdultDataSet{
     clases.add("<=50K");
     ArrayList<String> atributos = cm.getAtributos();
     double[][] tabla = cm.getTabla();
+    for(String at : atributos)
+      System.out.println(at);
     NaiveBayes ads = new NaiveBayes(clases,atributos,tabla);
 
     /*CONJUNTO DE PRUEBA*/
@@ -31,6 +33,8 @@ public class TestAdultDataSet{
                   data[i][5],rangoOccupation(data[i][6]),data[i][7],rangoRace(data[i][8]),data[i][9],
                   rangoCapitalGain(data[i][10]),rangoCapitalLoss(data[i][11]),rangoHoursPW(data[i][12]),
                   rangoCountry(data[i][13])};
+      System.out.println(p[0]+" "+p[1]+" "+p[2]+" "+p[3]+" "+p[4]+" "+p[5]+" "+p[6]+" "
+                          +p[7]+" "+p[8]+" "+p[9]+" "+p[10]+" "+p[11]);
       String prediccion = ads.clasifica(p);
 
       if (!prediccion.equals(data[i][14])){
@@ -67,16 +71,28 @@ public class TestAdultDataSet{
   public static String rangoAge(String numero){
     String rango = "";
     int edad = Integer.parseInt(numero);
-    if ((edad >= 10) && (edad <= 20)) {
-      rango = "10y-20y";
-    }else if((edad >= 21) && (edad <= 40)){
-      rango = "21y-40y";
-    }else if((edad >= 41) && (edad <= 60)){
-      rango = "41y-60y";
-    }else if((edad >= 61) && (edad <= 80)){
-      rango = "61y-80y";
-    }else if((edad >= 81) && (edad <= 100)){
-      rango = "81y-100y";
+    if ((edad >= 17) && (edad <= 21)) {
+      rango = "17-21y";
+    }else if((edad >= 22) && (edad <= 25)){
+      rango = "22-25y";
+    }else if((edad >= 26) && (edad <= 29)){
+      rango = "26-29y";
+    }else if((edad >= 30) && (edad <= 33)){
+      rango = "30-33y";
+    }else if((edad >= 34) && (edad <= 37)){
+      rango = "34-37y";
+    }else if((edad >= 38) && (edad <= 41)){
+      rango = "38-41y";
+    }else if((edad >= 42) && (edad <= 45)){
+      rango = "42-45y";
+    }else if((edad >= 46) && (edad <= 50)){
+      rango = "46-50y";
+    }else if((edad >= 51) && (edad <= 57)){
+      rango = "51-57y";
+    }else if((edad >= 58) && (edad <= 88)){
+      rango = "58-88y";
+    }else if((edad >= 89)){
+      rango = "AGE-?";
     }
     return rango;
   }
@@ -103,17 +119,36 @@ public class TestAdultDataSet{
   public static String rangoHoursPW(String numero){
     String rango = "";
     int horas = Integer.parseInt(numero);
-    if ((horas >= 0) && (horas <= 20)) {
-      rango = "10h-20h";
-    }else if((horas >= 21) && (horas <= 40)){
-      rango = "21h-40h";
-    }else if((horas >= 41) && (horas <= 60)){
-      rango = "41h-60h";
-    }else if((horas >= 61) && (horas <= 80)){
-      rango = "61h-80h";
-    }else if((horas >= 81) && (horas <= 100)){
-      rango = "81h-100h";
+    if ((horas >= 1) && (horas <= 18)) {
+      rango = "1-18h";
+    }else if((horas >= 19) && (horas <= 24)){
+      rango = "19-24h";
+    }else if((horas >= 25) && (horas <= 30)){
+      rango = "25-30h";
+    }else if((horas >= 31) && (horas <= 35)){
+      rango = "31-35h";
+    }else if((horas >= 36) && (horas <= 39)){
+      rango = "36-39h";
+    }else if(horas == 40){
+      rango = "40h";
+    }else if((horas >= 41) && (horas <= 44)){
+      rango = "41-44h";
+    }else if(horas == 45){
+      rango = "45h";
+    }else if((horas >= 46) && (horas <= 49)){
+      rango = "46-49h";
+    }else if(horas == 50){
+      rango = "50h";
+    }else if((horas >= 51) && (horas <= 59)){
+      rango = "51-59h";
+    }else if((horas >= 60) && (horas <= 64)){
+      rango = "60-64h";
+    }else if((horas >= 65) && (horas <= 89)){
+      rango = "65-89h";
+    }else if(horas >= 90){
+      rango = "HPW-?";
     }
+
     return rango;
   }
   public static String rangoCountry(String pais){
@@ -126,6 +161,8 @@ public class TestAdultDataSet{
   public static String rangoWorkclass(String wc){
     if(wc.equals("?"))
       return "WORKCLASS-?";
+    else if(wc.equals("Without-pay"))
+      return "Without- pay";
     return wc;
   }
   public static String rangoOccupation(String oc){
