@@ -15,7 +15,7 @@
 
  También los atributos {\it capital\_gain, capital\_loss y native\_country} cada uno tiene un valor el cual es el más frecuente, por lo que decidimos solo enfocarnos en ese valor al momento de hacer las tablas de frecuencias, las cuales son necesarias al usar el algoritmo Naive Bayes, por ejemplo, en {\it native\_country} teníamos que el atributo más frecuente era {\it United-States}, entonces todos los demas valores distintos a este le pusimos {\it Foreigner}, similarmente con {\it capital\_gain, capital\_loss} pero con el valor 0, esto nos ayudo bastante a bajar la carnalidad de la tabla de frecuencias.\\
 
- Al momento de hacer la mineria de datos en particular Naive Bayes la implementacion resulto fácil, puesto que solo habia que tener la tabla de frecuencias y aplicar las formulas correspondientes, mientras que para implementar C4.5 ya no resultó tan facil...\\
+ Al momento de hacer la mineria de datos en particular Naive Bayes la implementacion resulto fácil, puesto que solo habia que tener la tabla de frecuencias y aplicar las formulas correspondientes, mientras que para implementar C4.5 ya no resultó tan facil porque tuvimos problemas al general el árbol\\
 
- Los resultados de las técnicas que usamos nos parecieron con un buen rendimiento, por lo que no vemos la necesidad de usar otras.
+ Hicimos cambios en el preprocesamiento los cuales mejoraron 1\% al resultado de $>$50k de Naive Bayes, pero empeoraron la prediccion de $\leq$ 50k
 \end{document}

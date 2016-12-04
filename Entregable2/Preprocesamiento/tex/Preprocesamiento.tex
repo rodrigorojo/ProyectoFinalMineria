@@ -18,6 +18,7 @@
  \begin{center}
    \hbox{\hspace{-5.8em}\includegraphics[scale=0.4]{graficas/edad}}
  \end{center}
+ Con este atributo tomamos rangos de 10\%, los cuales quedaron de la siguiente manera: 17-21y, 22-25y, 26-29y, 30-33y, 34-37y, 38-41y, 42-45y, 46-50y, 51-57y, 58-88y
  \begin{center}
    \hbox{\hspace{-5.8em}\includegraphics[scale=0.4]{graficas/claseDeTrabajo}}
  \end{center}
@@ -64,9 +65,7 @@
    \hbox{\hspace{-5.8em}\includegraphics[scale=0.4]{graficas/totalDeSalario}}
  \end{center}
 
- Después de observar detalladamente estas gráficas pudimos observar que la mayoría de los individuos de este conjunto de datos tienen las siguiente características: son hombres con edad de 23 a 40 años, los cuales trabajan en el sector privado, con un grado de educación de preparatoria, están casados, son de raza blanca, trabajan 40 horas a la semana y su país de origen es Estados Unidos.
-
-Podemos observar que {\it education} es lo mismo que {\it education\_num}, es decir, si el grado en {\it education} es 'Doctorate' entonces {\it education\_num} será 16, si es 'Masters' será 14, y asi sucesivamente. Por lo que nos podremos deshacer de uno de los dos.
+ Después de observar detalladamente estas gráficas pudimos observar que los atributos que más se repiten son los siguientes: son hombres con edad de 23 a 40 años, los cuales trabajan en el sector privado, con un grado de educación de preparatoria, están casados, son de raza blanca, trabajan 40 horas a la semana y su país de origen es Estados Unidos.
 
 \subsection{Por Parejas}
   \begin{center}
@@ -100,61 +99,57 @@ Podemos observar que {\it education} es lo mismo que {\it education\_num}, es de
     \hbox{\hspace{-5.5em}\includegraphics[scale=0.45]{graficas/Sexo-RelFam}}
   \end{center}
 \section{Preprocesamiento}
-  Lo primero que haremos es eliminar al atributo {\it education\_num}, también será eliminado el atributo {\it fnlwgt} ya que nos proporciona información de grupos con caracteristicas demográficas parecidas, pero no sabemos el significado exacto del número, porque en la documentación del conjunto de datos no viene como es obtenido, después generaremos las tablas de frecuencias de cada atributo, estas se pueden encontrar en el archivo {\it preprocesamiento.sql} y {\it Entregable3/TablasDeFrecuencias/TablasDeFrecuencias.sql}. Solo faltaria graficar las tablas obtenidas
+Podemos observar que {\it education} es lo mismo que {\it education\_num}, es decir, si el grado en {\it education} es 'Doctorate' entonces {\it education\_num} será 16, si es 'Masters' será 14, y asi sucesivamente. Por lo que nos deshicimos deshacer de {\it education\_num}, también nos deshicimos de {\it fnlwgt} ya que nos proporciona información de grupos con caracteristicas demográficas parecidas, pero no sabemos el significado exacto del número, porque en la documentación del conjunto de datos no viene como es obtenido, para los datos que son numericos como {\it age} y {\it hours\_per\_week} los dividimos en rangos de 10\% y 5\% respectivamente. Para el atributo {\it native\_country} vimos que el que se repetia por mucho era 'United States', por lo que los dividimos en dos: 'United States' y 'Foreigner'. Hicimos algo parecido para {\it capital gain} y {\it capital loss} los dividimos por cero y mayor a cero. Vistos en tablas de frecuencias nos quedaron de la siguiente manera: estas se pueden encontrar en el archivo {\it preprocesamiento.sql}
   \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/edadesP}}
+    \includegraphics{tablas/age}
   \end{center}
-  En esta gráfica podemos observar que el rango mas alto es de 21 a 40 años mientras que el menor es de 81 a 100 años, también el otro que se repute bastante son las edades que están en tres 41 y 60 años, entonces podríamos decir que en general las personas de nuestro conjunto de datos se encuentran en el rango de 21 a 60 años.
+  En esta tabla podemos observar que el rango mas alto es de 21 a 40 años mientras que el menor es de 81 a 100 años, también el otro que se repute bastante son las edades que están en tres 41 y 60 años, entonces podríamos decir que en general las personas de nuestro conjunto de datos se encuentran en el rango de 21 a 60 años.
   \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/workclassP}}
+    \includegraphics[scale=0.5]{tablas/workclass}
   \end{center}
   La mayoría de la gente de nuestro conjunto de datos tiene un trabajo en el sector privado, este tiene una gran diferencia con respecto a los demás, las demás clases de trabajo no rebasan las 4,000 repeticiones, lo cual es demasiado pequeño.
   \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/fnlwgtP}}
-  \end{center}
-  El rango mas repito es de 100,001 a 200,000, mientras que el menos repetido es el de 400,001, 500,001.
-  \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/educationP}}
+    \includegraphics[scale=0.5]{tablas/education}
   \end{center}
   La mayoría de la gente tiene un máximo grado de educación de  preparatoria, el que queda en segundo lugar es grado universitario. Podemos observar que los menores son los que tienen menor grado de estudios van de preescolar a sexto grado. También muy pocos tienen el grado de doctor.
   \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/maritalP}}
+    \includegraphics[scale=0.5]{tablas/maritalstatus}
   \end{center}
   Mas de la mitad de las personas están casados, mientras que una tercera parte nunca se ha casado. Los estados civiles mas repetidos quedan ordenados de forma descendente de la siguiente manera: casado, nunca casado y divorciado.
   \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/ocupacionP}}
+    \includegraphics[scale=0.5]{tablas/occupation}
   \end{center}
   Podemos observar que 6 ocupaciones por lo menos se repiten mas de 3,000 veces, mientras que 9 ocupaciones están por debajo de 2,000. Es importante resaltar que no sabemos la ocupación de 2,000 personas.
   \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/relfamP}}
+    \includegraphics{tablas/relationship}
   \end{center}
   Mezclando la gráfica de sexo y relación en familia podemos observar que casi la mitad de los hombres juegan el papel de Esposo, mientras que solo una pequeña parte de las mujeres tiene el papel de esposa.
   \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/razaP}}
+    \includegraphics{tablas/race}
   \end{center}
   Mas del 70\% de las personas de nuestro conjunto de datos es de raza Blanca.
   \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/sexoP}}
+    \includegraphics{tablas/sex}
   \end{center}
   Mas del 60\% de nuestra población es hombre.
   \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/gananciaCapital}}
+    \includegraphics{tablas/capitalgain}
   \end{center}
   Podemos observar que mas de la mitad tiene 0
   \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/perdidaCapital}}
+    \includegraphics{tablas/capitalloss}
   \end{center}
   Lo mimso que en el anterior la mayoria tiene valor cero.
   \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/hpwP}}
+    \includegraphics[scale=0.5]{tablas/hpw}
   \end{center}
   La mayoría de las personas trabajan entre 21 a 40 horas a la semana.
   \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/paisesP}}
+    \includegraphics{tablas/nativecountry}
   \end{center}
   El país que predomina bastante es estados unidos.
   \begin{center}
-    \hbox{\hspace{-5.5em}\includegraphics[scale=0.4]{graficas/totalP}}
+    \includegraphics{tablas/total}
   \end{center}
   En total mas de la mitad de la gente gana menos de 50k.
 
