@@ -8,3 +8,11 @@ ok <- datest$V15 == pr
 table(ok)
 table(datest$V15)
 table(pr)
+i = 0
+a = 0
+b = 0
+c = 0
+d = 0
+for (values in mc){
+  
+}
